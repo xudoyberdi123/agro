@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% include 'css.html' %}
+    <title>Razdel</title> 
+</head>
+ 
+<body>
+   {% include 'header.html' %}
+    <div class="future lin">
+        <div class="container">
+            <div class="links_top">
+                <a href="{% url 'index' %}">Главная</a>
+                <a href="#">Сельхоз техника</a>
+                <a href="#">Тракторы</a>
+            </div>
+            <div class="bl_search">
+                <form class=" d-flex">
+                    <input type="text" placeholder="Введите слово для поиска">
+                    <div class="input-clear-box">
+                        <input type="text" placeholder="Ташкентская область" class="regions" id="region" id="open_search_popup">
+                        <div class="input-clear" id="clear"></div>
+                    </div>
+                    <button type="submit">НАЙТИ</button>
+                </form>
+                <div class="subregions">
+                    <div class="first-table" id="first-table">
+                        <div class="subtitle">
+                            <a class="whole-country" href="#!">Весь Узбекистан</a>
+                        </div>
+                        <ul class="">
+                            <li class=""><a href="#!">Андижанская область</a></li>
+                            <li class=""><a href="#!">Бухарская область</a></li>
+                            <li class=""><a href="#!">Джизакская область</a></li>
+                            <li class=""><a href="#!">Каракалпакстан</a></li>
+                            <li class=""><a href="#!">Кашкадарьинская область</a></li>
+                            <li class=""><a href="#!">Навоийская область</a></li>
+                            <li class=""><a href="#!">Наманганская область</a></li>
+                            <li class=""><a href="#!">Самаркандская область</a></li>
+                            <li class=""><a href="#!">Сурхандарьинская область</a></li>
+                            <li class=""><a href="#!">Сырдарьинская область</a></li>
+                            <li class=""><a href="#!">Ташкентская область</a></li>
+                            <li class=""><a href="#!">Ферганская область</a></li>
+                            <li class=""><a href="#!">Хорезмская область</a></li>
+                        </ul>
+                    </div>
+                    <div class="minicities" id="minicities">
+                        <div class="d-flex justify-content-between subtitle">
+                            <p class="back-to-region">Изменить регион</p>
+                            <p class="along-region text-right"><a href="#!">Искать по всему региону</a></p>
+                        </div>
+                        <ul>
+                            <li><a href="#!">Акалтын</a></li>
+                            <li><a href="#!">Алтынкуль</a></li>
+                            <li><a href="#!">Андижан</a></li>
+                            <li><a href="#!">Асака</a></li>
+                            <li><a href="#!">Ахунбабаев</a></li>
+                            <li><a href="#!">Балыкчи</a></li>
+                            <li><a href="#!">Боз</a></li>
+                            <li><a href="#!">Булакбаши</a></li>
+                            <li><a href="#!">Карасу</a></li>
+                            <li class=""><a href="#!">Куйганъяр</a></li>
+                            <li class=""><a href="#!">Кургантепа</a></li>
+                            <li><a href="#!">Мархамат</a></li>
+                            <li><a href="#!">Пайтуг</a></li>
+                            <li><a href="#!">Пахтаабад</a></li>
+                            <li><a href="#!">Шахрихан</a></li>
+                            <li><a href="#!">Ханабад</a></li>
+                            <li><a href="#!">Ходжаабад</a></li>
+                        </ul>
+                    </div>
+                    <span class="close-button">+</span>
+                </div>
+            </div>
+            <div class="filt">
+                <div class="dropdown sel">
+                    <button class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" >
+                    Сельскохозяйственная техника</button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <a href="#">Сельскохозяйственная техника 2</a>
+                        <a href="#">Сельскохозяйственная техника 3</a>
+                        <a href="#">Сельскохозяйственная техника 4</a>
+                    </div>
+                </div>
+                <div class="filter">
+                    <h4 class="filt_title">Фильтры</h4>
+                    <div class="d-flex">
+                        <div>
+                            <select class="js-example-basic-single" name="state">
+                                <option value="">Ташкент, Ташкентская обл.</option>
+                                <option value="">Сергелийский район</option>
+                                <option value="">Учтепинский район</option>
+                                <option value="">Мирзо-Улугбекский район</option>
+                                <option value="">Мирабадский район</option>
+                                <option value="">Бектемирский район</option>
+                                <option value="">Алмазарский (ранее Сабир-Рахимовский)</option>
+                                <option value="">Яшнободский (ранее Хамзинский)</option>
+                                <option value="">Юнусабадский район</option>
+                            </select>
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Цена от">
+                            <input type="text" placeholder="270 000 000 сум" value="270 000 000 сум">
+                        </div>
+                        <div>
+                            <select name="" id="">
+                                <option value="">Год выпуска от</option>
+                                <option value="">Год выпуска от 2</option>
+                            </select>
+                            <select name="" id="">
+                                <option value="">Пробег до</option>
+                                <option value="">Пробег до2</option>
+                            </select>
+                        </div>
+                        <div>
+                            <select name="" id="">
+                                <option value="">Состояние</option>
+                                <option value="">Состояние 2</option>
+                            </select>
+                        </div>
+                       <div>
+                            <select name="" id="">
+                                <option value="">Вид топлива</option>
+                                <option value="">Вид топлива 2</option>
+                            </select>
+                        </div>
+                    </div>
+                    <hr>
+                    <h4 class="filt_title">Категории</h4>
+                    <div class="category d-flex flex-wrap">
+                        <a href="#" class="active">Все объявления</a>
+                        <a href="#">Посевные машины</a>
+                        <a href="#">Хлопкоуборочные</a>
+                        <a href="#">Тягачи и тралы</a>
+                        <a href="#">Грузовые автомобили</a>
+                        <a href="#">Прицепы</a>
+                        <a href="#">Специализированные</a>
+                        <a href="#">Экскаваторы</a>
+                        <a href="#">Водный транспорт</a>
+                        <a href="#">Запчасти для с.х. техники</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab_section">
+            <div class="boder"></div>
+            <div class="container p-relative">
+                <div class="choose_filt">
+                    <p><img src="images/sortirovka.png" alt=""> Сортировка: <span class="choosen">Самые новые</span></p>
+                    <div class="language-popup">
+                        <a href="#">Самые новые 1</a>                              
+                        <a class="active" href="#">Самые новые 2</a>
+                        <a href="#">Самые новые 3</a>
+                    </div>
+                </div>
+            </div>
+            <ul class="nav nav-tabs container">
+              <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#home">Товары и услуги <span>237</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#menu1">Закупки/Спросы <span>0</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#menu2">Продавцы <span>20</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#menu3">Покупатели <span>4</span></a>
+              </li>
+            </ul>
+            {% for i in yangilik %}
+            <div class="tab-content">
+                <div class="tab-pane container active" id="home">
+                <div class="item_prod">
+                    <a href="#" class=""><img src="http://127.0.0.1:8000{{ i.rasmlar.3 }}" style="width:303px; height:176px;"></a>
+                    <div class="text">
+                        <div class="prod_price">
+                            <p>{{ i.summa_narxi }}</p><span>сум/шт</span>
+                        </div>
+                        <a href="#" class="title">{{ i.name }}</a>
+                        <p class="two_text">{{ i.malumoti_qisqacha }}</p>
+                        <p class="company_name">Компания: <b>ЧП "PLANETA SERVIS"</b></p>
+                        <span class="adress_pr">" alt="">Ташкент, Шайхантахурский район</span>
+                        <span class="adress_pr"><img src="images/clock.png" alt="">Вчера 23:25</span>
+                        <a href="#" class="razd_star"><i class="fas fa-star"></i><i class="far fa-star"></i></a>
+                    </div>
+
+                </div>
+            {% endfor %}
+
+<!--                <div class="item_prod">-->
+<!--                    <a href="#" class="img"><span>в топе</span></a>-->
+<!--                    <div class="text">-->
+<!--                        <div class="prod_price">-->
+<!--                            <p>220000000 </p><span>сум/шт</span>-->
+<!--                        </div>-->
+<!--                        <a href="#" class="title">Продаю новый трактор BELARUS-1523</a>-->
+<!--                        <p class="two_text">Трактор предназначен для выполнения различных сельскохозяйственных работ общего назначения, основной и предпосевной обработки почвы, посева в составе широкозахватных и комбинированных агрегатов, уборочных составе высокопроизводительных уборочных комплексов, транспортных работ. Мощность</p>-->
+<!--                        <p class="company_name">Компания: <b>ЧП "PLANETA SERVIS"</b></p>-->
+<!--                        <span class="adress_pr"><img src="images/map_mar.png" alt="">Ташкент, Шайхантахурский район</span>-->
+<!--                        <span class="adress_pr"><img src="images/clock.png" alt="">Вчера 23:25</span>-->
+<!--                        <a href="#" class="razd_star"><i class="fas fa-star"></i><i class="far fa-star"></i></a>-->
+<!--                       -->
+<!--                    </div>-->
+<!--                </div>-->
+<!--               -->
+                <div class="pagination clr">
+                    <a href="#"><i class="fa fa-angle-double-left"></i> Назад</a>
+                    <a href="#">1</a>
+                    <a href="#" class="active">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">6</a>
+                    <a href="#">Следующая <i class="fa fa-angle-double-right"></i></a>
+                </div>
+              </div>
+              <div class="tab-pane container fade" id="menu1">..cxvxcvxcvcvxvxv.</div>
+              <div class="tab-pane container fade" id="menu2">..sdvsdvzsdv.</div>
+              <div class="tab-pane container fade" id="menu3">..sdvsdvzsdv.</div>
+            </div>
+        </div>
+    </div>
+    <div class="about_benefits">
+        <div class="container">
+            <p>У каждого сельскохозяйственного производителя немало хлопот. Кроме круглогодичной заботы о растениях, животных, встают проблемы с реализацией выращенной продукции. Специфика этих товаров заключается в необходимости срочной реализации, где отлично может помочь торговая площадка а именно доска объявлений.  Не всегда удается оперативно найти покупателя, выгодно продать товар. Наша доска агро объявлений Узбекистана поможет каждому аграрию и сельскому хозяйству максимально быстро продать свою продукцию.</p>
+        </div>
+    </div>
+
+    {% include 'footer.html' %}
+    {% include 'js.html' %}
+
+    <script>
+          $('.two_text').ellipsis({
+              lines:4,             
+              ellipClass: 'ellip',  
+              responsive: true    
+            });
+    </script>
+</body>
+</html>

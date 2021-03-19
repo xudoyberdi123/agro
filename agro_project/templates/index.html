@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    {% include 'css.html' %}
+    <title>Agro</title>
+</head>
+ 
+<body>
+  {% include 'header.html' %}
+
+        <div class="future">
+            <div class="container">
+                <div class="bl_search">
+                    <form class=" d-flex" method="get">
+                        <input type="text" name="search" placeholder="Введите слово для поиска">
+                        <input type="hidden" value="0" name="region_id" id="region_id">
+                        <div class="input-clear-box">
+                            <input type="text"  placeholder="Ташкентская область" class="regions" id="region" id="open_search_popup">
+                            <div class="input-clear" id="clear"></div>
+                        </div>
+                        <button type="submit">НАЙТИ</button>
+
+                    </form>
+                    <div class="subregions">
+                        <div class="first-table" id="first-table">
+                            <div class="subtitle">
+                                <a class="whole-country" href="#!">Весь Узбекистан</a>
+                            </div>
+                            <ul class="">
+                                {% for i in viloyatlar %}
+                                <li class=""><a onclick="onSelectRegion({{ i.id }})">{{ i.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="minicities" id="minicities">
+                            <div class="d-flex justify-content-between subtitle">
+                                <p class="back-to-region">Изменить регион</p>
+                                <p class="along-region text-right"><a href="#!">Искать по всему региону</a></p>
+                            </div>
+
+                                <ul id="ul_district_id">
+
+                                </ul>
+                                <script>
+                                    function onSelectRegion(region_id){
+                                        var ul = document.getElementById("ul_district_id");
+                                        var region = document.getElementById("region_id");
+                                        region.value = region_id;
+                                        ul.innerHTML = "";
+                                        {% for i in tumanlar %}
+                                            if ("{{ i.vil_id_id }}" == region_id){
+                                                var li{{ i.id }} = document.createElement("li");
+                                                li{{ i.id }}.innerHTML = "{{ i.name }}";
+                                                ul.appendChild(li{{ i.id }});
+                                            }
+                                        {% endfor %}
+                                    }
+                                </script>
+                        </div>
+                        <span class="close-button">+</span>
+                    </div>
+                </div>
+            </div>
+        <div class="my_carousel owl-carousel">
+            <div class="item">
+                <div class="bc_item" style="{% static 'background-image: url(images/fish.png);' %}"></div>
+                <a href="#" class="title_item">
+                    Семена, саженцы и посевные 
+                </a>
+                <ul>
+                    <li><a href="#">Зарыбок  ∙  1</a></li>
+                    <li><a href="#">Морская рыба  ∙  1</a></li>
+                    <li><a href="#">Речная рыба  ∙  2</a></li>
+                </ul>
+                <a href="#" class="to_catalog">Перейти в каталог</a>
+            </div>
+            <div class="item">
+                <div class="bc_item" style="background-image: url(images/trava.png);"></div>
+                <a href="#" class="title_item">
+                    Семена, саженцы и посевные 
+                </a>
+                <ul>
+                    <li><a href="#">Зарыбок  ∙  1</a></li>
+                    <li><a href="#">Морская рыба  ∙  1</a></li>
+                    <li><a href="#">Речная рыба  ∙  2</a></li>
+                </ul>
+                <a href="#" class="to_catalog">Перейти в каталог</a>
+            </div>
+            <div class="item">
+                <div class="bc_item" style="background-image: url(images/chicken.png);"></div>
+                <a href="#" class="title_item">
+                    Семена, саженцы и посевные 
+                </a>
+                <ul>
+                    <li><a href="#">Зарыбок  ∙  1</a></li>
+                    <li><a href="#">Морская рыба  ∙  1</a></li>
+                    <li><a href="#">Речная рыба  ∙  2</a></li>
+                </ul>
+                <a href="#" class="to_catalog">Перейти в каталог</a>
+            </div>
+
+
+            <div class="item">
+                <div class="bc_item" style="background-image: url(images/Polifoska_1.png);"></div>
+                <a href="#" class="title_item">
+                    Семена, саженцы и посевные 
+                </a>
+                <ul>
+                    <li><a href="#">Зарыбок  ∙  1</a></li>
+                    <li><a href="#">Морская рыба  ∙  1</a></li>
+                    <li><a href="#">Речная рыба  ∙  2</a></li>
+                </ul>
+                <a href="#" class="to_catalog">Перейти в каталог</a>
+            </div>
+            <div class="item">
+                <div class="bc_item" style="background-image: url(images/gov2.png);"></div>
+                <a href="#" class="title_item">
+                    Семена, саженцы и посевные 
+                </a>
+                <ul>
+                    <li><a href="#">Зарыбок  ∙  1</a></li>
+                    <li><a href="#">Морская рыба  ∙  1</a></li>
+                    <li><a href="#">Речная рыба  ∙  2</a></li>
+                </ul>
+                <a href="#" class="to_catalog">Перейти в каталог</a>
+            </div>
+            <div class="item">
+                <div class="bc_item" style="background-image: url(images/fish.png);"></div>
+                <a href="#" class="title_item">
+                    Семена, саженцы и посевные 
+                </a>
+                <ul>
+                    <li><a href="#">Зарыбок  ∙  1</a></li>
+                    <li><a href="#">Морская рыба  ∙  1</a></li>
+                    <li><a href="#">Речная рыба  ∙  2</a></li>
+                </ul>
+                <a href="#" class="to_catalog">Перейти в каталог</a>
+            </div>
+            <div class="item">
+                <div class="bc_item" style="background-image: url(images/fish.png);"></div>
+                <a href="#" class="title_item">
+                    Семена, саженцы и посевные 
+                </a>
+                <ul>
+                    <li><a href="#">Зарыбок  ∙  1</a></li>
+                    <li><a href="#">Морская рыба  ∙  1</a></li>
+                    <li><a href="#">Речная рыба  ∙  2</a></li>
+                </ul>
+                <a href="#" class="to_catalog">Перейти в каталог</a>
+            </div>
+        </div>
+    </div>
+    <div class="it_work">
+        <div class="container">
+            <h2 class="title_md">Как работает торговая площадка AGRO Uzbekistan?</h2>
+            <div class="row">
+                <div class="col-lg-4 d-flex align-items-center">
+                    <div class="work_text_left">
+                        <h2>1</h2>
+                    </div>
+                    <div class="work_text_right d-flex flex-column justify-content-between">
+                        <h4>Добавьте свою компанию</h4>
+                        <div class="hov">
+                            <p class="no_hover">
+                                и вы легко сможете продавать их не только на местном рынке, но и экспортировать. Так как мы рекламируем ваши товары и услуги на весь мир
+                            </p>
+                            <div class="has_hover">
+                                <a href="{% url 'registratsiya' %}">добавить</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-flex align-items-center">
+                    <div class="work_text_left">
+                        <h2>2</h2>
+                    </div>
+                    <div class="work_text_right d-flex flex-column justify-content-between">
+                        <h4>Разместите ваши Товары и услуги</h4>
+                        <div class="hov">
+                            <p class="no_hover">
+                                и вы легко сможете продавать их не только на местном рынке, но и экспортировать. Так как мы рекламируем ваши товары и услуги на весь мир
+                            </p>
+                            <div class="has_hover">
+                                <a href="{% url 'form' %}">добавить</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-flex align-items-center">
+                    <div class="work_text_left">
+                        <h2>3</h2>
+                    </div>
+                    <div class="work_text_right d-flex flex-column justify-content-between">
+                        <h4>Закупайте Все что вы желаете.</h4>
+                        <div class="hov">
+                            <p class="no_hover">
+                                В разделе закупки/спросы вы можете закупать любой товар или услугу. Не вы будете искать товары, а покупатели сами найдут вас!
+                            </p>
+                            <div class="has_hover">
+                                <a href="#">добавить</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+<!--    <div class="last_updates">-->
+<!--        <div class="container">-->
+<!--            <h2 class="title_md">Последние объявления</h2>-->
+<!--            <div class="card_main">-->
+<!--                <div class="card">-->
+<!--                  <a href="#" class="card_img_top" style="background-image: url(images/tractor.jpg);"></a>-->
+<!--&lt;!&ndash;                  <div class="card_body">&ndash;&gt;-->
+<!--                    <div class="d-flex align-items-center justify-content-between">-->
+<!--                        <a href="#" class="card_title">144 000 000  сум</a>-->
+<!--                        <a href="#" class="star_act"><i class="fas fa-star"></i><i class="far fa-star"></i></a>-->
+<!--                    </div>-->
+<!--                      <h2 class="title_md">Последние объявления</h2>-->
+
+<!--                      {% for i in a %}-->
+<!--                      <h2 class="title_md">Последние</h2>-->
+<!--                      <a href="{% url 'page' prod_id=i.id %}" class="card-text">{{ i.name }}</a>-->
+<!--                      <a href="{% url 'page' prod_id=i.id %}" class="adress_pr"><img src="http://127.0.0.1:8000/media/{{ i.image }}" alt=""></a>-->
+<!--                      {% endfor %}-->
+
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <div class="card">-->
+{% if a %}
+  <div class="last_updates">
+      <div class="container">
+          <h2 class="title_md">По запросу</h2>
+            <div class="card_main">
+                {% for i in a %}
+                <div class="card">
+                    <a href="{% url 'page' prod_id=i.id %}" class="card_img_top" style ="background-image: url(http://127.0.0.1:8000{{ i.rasmlar.1 }});"></a>
+                    <div class="card_body">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <ul style="list-style:none;">
+                                <li><a href="{% url 'page' prod_id=i.id %}" class="card-text"><h1>{{ i.name }}</h1></a>
+
+                                </li>
+                                <li><a href="{% url 'page' prod_id=i.id %}" class="adress_pr"><h2>{{ i.viloyat_id }}</h2></a></li>
+                                <li><a href="{% url 'page' prod_id=i.id %}" class="card_title"><h1>{{ i.summa_narxi }}</h1></a>
+                                <a href="#" class="add_izb">
+                                    <i class="far fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    Добавить в избранное
+                                </a>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+      </div>
+  </div>
+{% endif %}
+                      <!--                  </div>-->
+<!--                </div>-->
+<!--                <div class="card">-->
+<!--                  <a href="#" class="card_img_top" style="background-image: url(images/tractor.jpg);"></a>-->
+<!--                  <div class="card_body">-->
+<!--                    <div class="d-flex align-items-center justify-content-between">-->
+<!--                        <a href="#" class="card_title">144 000 000  сум</a>-->
+<!--                        <a href="#" class="star_act"><i class="fas fa-star"></i><i class="far fa-star"></i></a>-->
+<!--                    </div>-->
+<!--                    <a href="#" class="card-text">Продаю трактор Беларусь</a>-->
+<!--                    <a href="#" class="adress_pr"><img src="images/map_mar.png" alt="">Ташкентская область, Янгиюль</a>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <div class="card">-->
+<!--                  <a href="#" class="card_img_top" style="background-image: url(images/tractor.jpg);"></a>-->
+<!--                  <div class="card_body">-->
+<!--                    <div class="d-flex align-items-center justify-content-between">-->
+<!--                        <a href="#" class="card_title">144 000 000  сум</a>-->
+<!--                        <a href="#" class="star_act"><i class="fas fa-star"></i><i class="far fa-star"></i></a>-->
+<!--                    </div>-->
+<!--                    <a href="#" class="card-text">Продаю трактор Беларусь</a>-->
+<!--                    <a href="#" class="adress_pr"><img src="images/map_mar.png" alt="">Ташкентская область, Янгиюль</a>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <div class="card">-->
+<!--                  <a href="#" class="card_img_top" style="background-image: url(images/tractor.jpg);"></a>-->
+<!--                  <div class="card_body">-->
+<!--                    <div class="d-flex align-items-center justify-content-between">-->
+<!--                        <a href="#" class="card_title">144 000 000  сум</a>-->
+<!--                        <a href="#" class="star_act"><i class="fas fa-star"></i><i class="far fa-star"></i></a>-->
+<!--                    </div>-->
+<!--                    <a href="#" class="card-text">Продаю трактор Беларусь</a>-->
+<!--                    <a href="#" class="adress_pr"><img src="images/map_mar.png" alt="">Ташкентская область, Янгиюль</a>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <div class="card">-->
+<!--                  <a href="#" class="card_img_top" style="background-image: url(images/tractor.jpg);"></a>-->
+<!--                  <div class="card_body">-->
+<!--                    <div class="d-flex align-items-center justify-content-between">-->
+<!--                        <a href="#" class="card_title">144 000 000  сум</a>-->
+<!--                        <a href="#" class="star_act"><i class="fas fa-star"></i><i class="far fa-star"></i></a>-->
+<!--                    </div>-->
+<!--                    <a href="#" class="card-text">Продаю трактор Беларусь</a>-->
+<!--                    <a href="#" class="adress_pr"><img src="images/map_mar.png" alt="">Ташкентская область, Янгиюль</a>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <div class="card">-->
+<!--                  <a href="#" class="card_img_top" style="background-image: url(images/tractor.jpg);"></a>-->
+<!--                  <div class="card_body">-->
+<!--                    <div class="d-flex align-items-center justify-content-between">-->
+<!--                        <a href="#" class="card_title">144 000 000  сум</a>-->
+<!--                        <a href="#" class="star_act"><i class="fas fa-star"></i><i class="far fa-star"></i></a>-->
+<!--                    </div>-->
+<!--                    <a href="#" class="card-text">Продаю трактор Беларусь</a>-->
+<!--                    <a href="#" class="adress_pr"><img src="images/map_mar.png" alt="">Ташкентская область, Янгиюль</a>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <div class="card">-->
+<!--                  <a href="#" class="card_img_top" style="background-image: url(images/tractor.jpg);"></a>-->
+<!--                  <div class="card_body">-->
+<!--                    <div class="d-flex align-items-center justify-content-between">-->
+<!--                        <a href="#" class="card_title">144 000 000  сум</a>-->
+<!--                        <a href="#" class="star_act"><i class="fas fa-star"></i><i class="far fa-star"></i></a>-->
+<!--                    </div>-->
+<!--                    <a href="#" class="card-text">Продаю трактор Беларусь</a>-->
+<!--                    <a href="#" class="adress_pr"><img src="images/map_mar.png" alt="">Ташкентская область, Янгиюль</a>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <div class="card">-->
+<!--                  <a href="#" class="card_img_top" style="background-image: url(images/tractor.jpg);"></a>-->
+<!--                  <div class="card_body">-->
+<!--                    <div class="d-flex align-items-center justify-content-between">-->
+<!--                        <a href="#" class="card_title">144 000 000  сум</a>-->
+<!--                        <a href="#" class="star_act"><i class="fas fa-star"></i><i class="far fa-star"></i></a>-->
+<!--                    </div>-->
+<!--                    <a href="#" class="card-text">Продаю трактор Беларусь</a>-->
+<!--                    <a href="#" class="adress_pr"><img src="images/map_mar.png" alt="">Ташкентская область, Янгиюль</a>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <div class="card">-->
+<!--                  <a href="#" class="card_img_top" style="background-image: url(images/tractor.jpg);"></a>-->
+<!--                  <div class="card_body">-->
+<!--                    <div class="d-flex align-items-center justify-content-between">-->
+<!--                        <a href="#" class="card_title">144 000 000  сум</a>-->
+<!--                        <a href="#" class="star_act"><i class="fas fa-star"></i><i class="far fa-star"></i></a>-->
+<!--                    </div>-->
+<!--                    <a href="#" class="card-text">Продаю трактор Беларусь</a>-->
+<!--                    <a href="#" class="adress_pr"><img src="images/map_mar.png" alt="">Ташкентская область, Янгиюль</a>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <div class="card">-->
+<!--                  <a href="#" class="card_img_top" style="background-image: url(images/tractor.jpg);"></a>-->
+<!--                  <div class="card_body">-->
+<!--                    <div class="d-flex align-items-center justify-content-between">-->
+<!--                        <a href="#" class="card_title">144 000 000  сум</a>-->
+<!--                        <a href="#" class="star_act"><i class="fas fa-star"></i><i class="far fa-star"></i></a>-->
+<!--                    </div>-->
+<!--                    <a href="#" class="card-text">Продаю трактор Беларусь</a>-->
+<!--                    <a href="#" class="adress_pr"><img src="images/map_mar.png" alt="">Ташкентская область, Янгиюль</a>-->
+
+    <div class="about_benefits">
+        <div class="container">
+            <h2 class="title_md">Коротко о преимуществах</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <p>У каждого сельскохозяйственного производителя немало хлопот. Кроме круглогодичной заботы о растениях, животных, встают проблемы с реализацией выращенной продукции.</p> 
+                    <p>Специфика этих товаров заключается в необходимости срочной реализации, где отлично может помочь торговая площадка а именно доска объявлений.  Не всегда удается оперативно найти покупателя, выгодно продать товар. Наша доска агро объявлений Узбекистана поможет каждому аграрию и сельскому хозяйству максимально быстро продать свою продукцию.  Поиск покупателей и продавцов не требует затрат времени. Войти в интернет, найти партнера, совершить сделку, можно дома, в дороге, офисе. Конечно, наша агродоска не единственная в сети, но наш сайт обеспечивает своим пользователям ряд преимуществ. </p>
+                </div>
+                <div class="col-lg-6">
+                    <p>- высокая посещаемость,  многочисленные просмотры ваших объявлений;<br>  - возможность добавлять компании;  удобный рубрикатор;  <br>
+                    - разместить агро объявление можно бесплатно и без регистрации;  <br>
+                    - 1 минута! (столько нужно времени чтобы дать объявление); <br>
+                    - агро объявления публикуются моментально;  <br>
+                    - оптимизация ваших объявлений (вывод в топ 10 Google и Яндекс);  <br>
+                    - постоянные советы и рекомендации по улучшению качества и видимости; <br>- Эффективность агро объявлений </p>
+                    <p>Для того чтобы обеспечить сельскохозяйственному объявлению должную эффективность нужно указать в описании всю необходимую информацию о продукте или услуге, дополнить текст фотографией или видеороликом что значительно увеличивает кликабельность вашего объявления. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% include 'footer.html' %}
+{% include 'js.html' %}
+
+
+</body>
+</html>

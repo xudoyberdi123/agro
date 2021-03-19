@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+{% include 'css.html' %}
+    <title>Payment</title> 
+</head>
+ 
+<body>
+    {% include 'header.html' %}
+    <div class="add_plus">
+        <div class="container">
+            <div class="links_top">
+                <a href="{% static 'index' %}">Главная</a>
+                <a href="{% url 'payment' %}">Профиль пользователя</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="payment">
+        <div class="container">
+            <h2>Мы очень рады, что вы пользуютесть платными услугами нашей площадки. <br>Пожалуйста выберите метод оплаты</h2>
+            <div class="d-flex opl justify-content-between">
+                <a href="https://payme.uz/home/main">
+                    <img src="{% static 'images/pp.jpg' %}" alt="">
+                    <p>Payme - оплата с помощью карты</p>
+                </a>
+                <a href="https://click.uz/ru">
+                    <img src="{% static 'images/cc.jpg' %}" alt="">
+                    <p>Click.uz система оплаты</p>
+                </a>
+                <a href="https://www.paynet.uz/">
+                    <img src="{% static 'images/tt.jpg' %}" alt="">
+                    <p>Оплата на местах</p>
+                </a>
+            </div>
+        </div>
+    </div>
+   <div class="about_benefits">
+        <div class="container">
+            <p>У каждого сельскохозяйственного производителя немало хлопот. Кроме круглогодичной заботы о растениях, животных, встают проблемы с реализацией выращенной продукции. Специфика этих товаров заключается в необходимости срочной реализации, где отлично может помочь торговая площадка а именно доска объявлений.  Не всегда удается оперативно найти покупателя, выгодно продать товар. Наша доска агро объявлений Узбекистана поможет каждому аграрию и сельскому хозяйству максимально быстро продать свою продукцию.</p>
+        </div>
+    </div>
+{% include 'footer.html' %}
+{% include 'js.html' %}
+
+
+<!--          $('#imageGallery').lightSlider({-->
+<!--                gallery:true,-->
+<!--                item:1,-->
+<!--                loop: false,-->
+<!--                thumbItem:6,-->
+<!--                slideMargin:0,-->
+<!--                enableDrag: true,-->
+<!--                currentPagerPosition:'left',-->
+<!--                onSliderLoad: function(el) {-->
+<!--                    el.lightGallery({-->
+<!--                        selector: '#imageGallery .lslide'-->
+<!--                    });-->
+<!--                }-->
+<!--            });  -->
+
+
+<!--    </script>-->
+</body>
+</html>

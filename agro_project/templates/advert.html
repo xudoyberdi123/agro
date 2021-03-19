@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  {% include 'css.html' %}
+    <title>Advert</title> 
+</head>
+ 
+<body>
+   {% include 'header.html' %}
+    <div class="future lin advert">
+        <div class="container">
+            <div class="links_top">
+                <a href="index.html">Главная</a>
+                <a href="#">Сельхоз техника</a>
+                <a href="#">Тракторы</a>
+            </div>
+             <div class="bl_search">
+                <form class=" d-flex" method="get">
+                    <input type="text" name="search" placeholder="Введите слово для поиска">
+                    <input type="hidden" value="0" name="region_id" id="region_id">
+                    <div class="input-clear-box">
+                        <input type="text"  placeholder="Ташкентская область" class="regions" id="region" id="open_search_popup">
+                        <div class="input-clear" id="clear"></div>
+                    </div>
+                    <button type="submit">НАЙТИ</button>
+                </form>
+
+
+                <div class="subregions">
+                    <div class="first-table" id="first-table">
+                        <div class="subtitle">
+                            <a class="whole-country" href="#!">Весь Узбекистан</a>
+                        </div>
+                        <ul class="">
+                            {% for i in viloyatlar %}
+                            <li class=""><a onclick="onSelectRegion({{ i.id }})">{{ i.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="minicities" id="minicities">
+                        <div class="d-flex justify-content-between subtitle">
+                            <p class="back-to-region">Изменить регион</p>
+                            <p class="along-region text-right"><a href="#!">Искать по всему региону</a></p>
+                        </div>
+
+                            <ul id="ul_district_id">
+
+                            </ul>
+                            <script>
+                                function onSelectRegion(region_id){
+                                    var ul = document.getElementById("ul_district_id");
+                                    var region = document.getElementById("region_id");
+                                    region.value = region_id;
+                                    ul.innerHTML = "";
+                                    {% for i in tumanlar %}
+                                        if ("{{ i.vil_id_id }}" == region_id){
+                                            var li{{ i.id }} = document.createElement("li");
+                                            li{{ i.id }}.innerHTML = "{{ i.name }}";
+                                            ul.appendChild(li{{ i.id }});
+                                        }
+                                    {% endfor %}
+                                }
+                            </script>
+                    </div>
+                    <span class="close-button">+</span>
+                </div>
+            </div>
+        </div>
+  {% for i in a %}
+    <div class="carousel_main">
+        <div class="container">
+            <div class="row f-wrap">
+                <div class="col-xl-6">
+                    <div class="car_left">
+                        <ul id="imageGallery">
+                            <li data-thumb="images/tractor_slide.jpg" data-src="images/tractor_slide.jpg">
+                                <img src="http://127.0.0.1:8000/media/{{ i.image }}" />
+                            </li>
+<!--                            <li data-thumb="images/tractor_slide.jpg" data-src="images/tractor_slide.jpg">-->
+<!--                                <img src="images/tractor_slide.jpg" />-->
+<!--                            </li>-->
+<!--                            <li data-thumb="images/tractor_slide.jpg" data-src="images/tractor_slide.jpg">-->
+<!--                                <img src="images/tractor_slide.jpg" />-->
+<!--                            </li>-->
+<!--                            <li data-thumb="images/tractor_slide.jpg" data-src="images/tractor_slide.jpg">-->
+<!--                                <img src="images/tractor_slide.jpg" />-->
+<!--                            </li>-->
+<!--                            <li data-thumb="images/tractor_slide.jpg" data-src="images/tractor_slide.jpg">-->
+<!--                                <img src="images/tractor_slide.jpg" />-->
+<!--                            </li>-->
+<!--                            <li data-thumb="images/tractor_slide.jpg" data-src="images/tractor_slide.jpg">-->
+<!--                                <img src="images/tractor_slide.jpg" />-->
+<!--                            </li>-->
+<!--                            <li data-thumb="images/tractor_slide.jpg" data-src="images/tractor_slide.jpg">-->
+<!--                                <img src="images/tractor_slide.jpg" />-->
+<!--                            </li>-->
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-xl-6">
+                    <div class="car_right">
+                        <h1>Трактор BELARUS-1523 Новый</h1>
+                        <p><img src="http://127.0.0.1:8000/media/{{ i.image }}" alt="">{{ i.name }}</p>
+                        <div class="descr_slide">
+                            <div class="pr_descr d-flex justify-content-between align-items-center">
+                                <h2>{{ i.narxi }}<span>(дог.)</span></h2>
+                                <a href="#" class="add_izb">
+                                    <i class="far fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    Добавить в избранное
+                                </a>
+                            </div> 
+                            <div class="butch">
+                                <p><img src="http://127.0.0.1:8000/media/{{ i.image }}" alt="">Ташкент / Юнусабадский район   <a href="#">1,6 км от вас (показать на карте)</a></p>
+                                <p><img src="http://127.0.0.1:8000/media/{{ i.image }}" alt="">Добавлено: 14.06.18 в 12:44   -    Обновлено: 19.12.18 в 22:23</p>
+                                <p><img src="images/glob.png" alt=""><b>OOO "Agro Mash Complex"</b>   <a href="#">Все объявления пользователя</a></p>
+                                <p><b>Описание товара:</b></p>
+                                <p>Состояние - новый. Куплен в 2018 году. Пробег 800 км. Доставка осуществляется за счет покупателя. Трактор предназначен для выполнения различных сельскохозяйственных работ общего назначения, основной и предпосевной обработки почвы, посева в составе широкозахватных и комбинированных агрегатов, уборочных работ в составе высокопроизводительных уборочных комплексов, транспортных работ. </p>
+                                <table>
+                                    <tr>
+                                        <td>Мощность</td>
+                                        <td>148/109 л.с./кВт</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Колесная формула</td>
+                                        <td>4К4 </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Исполнение кабины</td>
+                                        <td>Кабина с цилиндрическими стеклами </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Число передач вперед/назад</td>
+                                        <td>16/8 (24/12)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Коробка передач</td>
+                                        <td>Синхронизированная/гидромеханическая</td>
+                                    </tr>
+                                </table>
+                                <a href="#" class="number_new">Номер объявления: 07449002</a>
+                                <div class="desc_btm_link">
+                                    <span><img src="images/phone.png" alt="">998 98 125 ** **<a href="#">Показать</a></span>
+                                    <a href="#" class="write_to_avtor"><img src="images/mail.png" alt="">Написать автору</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+  {% endfor %}
+            </div>
+            <div class="similar_list">
+                <h3><span>Похожие объявления</span></h3>
+                <div class="item_prod">
+                    <a href="#" class="img"></a>
+                    <div class="text">
+                        <div class="prod_price">
+                            <p>220000000 </p><span>сум/шт</span>
+                        </div>
+                        <a href="#" class="title">Продаю новый трактор BELARUS-1523</a>
+                        <p class="two_text">Трактор предназначен для выполнения различных сельскохозяйственных работ общего назначения, основной и предпосевной обработки почвы, посева в составе широкозахватных и комбинированных агрегатов, уборочных составе высокопроизводительных уборочных комплексов, транспортных работ. Мощность</p>
+                        <p class="company_name">Компания: <b>ЧП "PLANETA SERVIS"</b></p>
+                        <span class="adress_pr"><img src="images/map_mar.png" alt="">Ташкент, Шайхантахурский район</span>
+                        <span class="adress_pr"><img src="images/clock.png" alt="">Вчера 23:25</span>
+                        <a href="#" class="razd_star"><i class="fas fa-star"></i><i class="far fa-star"></i></a>
+                    </div>
+                </div>
+                <div class="item_prod">
+                    <a href="#" class="img"></a>
+                    <div class="text">
+                        <div class="prod_price">
+                            <p>220000000 </p><span>сум/шт</span>
+                        </div>
+                        <a href="#" class="title">Продаю новый трактор BELARUS-1523</a>
+                        <p class="two_text">Трактор предназначен для выполнения различных сельскохозяйственных работ общего назначения, основной и предпосевной обработки почвы, посева в составе широкозахватных и комбинированных агрегатов, уборочных составе высокопроизводительных уборочных комплексов, транспортных работ. Мощность</p>
+                        <p class="company_name">Компания: <b>ЧП "PLANETA SERVIS"</b></p>
+                        <span class="adress_pr"><img src="images/map_mar.png" alt="">Ташкент, Шайхантахурский район</span>
+                        <span class="adress_pr"><img src="images/clock.png" alt="">Вчера 23:25</span>
+                        <a href="#" class="razd_star"><i class="fas fa-star"></i><i class="far fa-star"></i></a>
+                    </div>
+                </div>
+                <div class="item_prod">
+                    <a href="#" class="img"></a>
+                    <div class="text">
+                        <div class="prod_price">
+                            <p>220000000 </p><span>сум/шт</span>
+                        </div>
+                        <a href="#" class="title">Продаю новый трактор BELARUS-1523</a>
+                        <p class="two_text">Трактор предназначен для выполнения различных сельскохозяйственных работ общего назначения, основной и предпосевной обработки почвы, посева в составе широкозахватных и комбинированных агрегатов, уборочных составе высокопроизводительных уборочных комплексов, транспортных работ. Мощность</p>
+                        <p class="company_name">Компания: <b>ЧП "PLANETA SERVIS"</b></p>
+                        <span class="adress_pr"><img src="images/map_mar.png" alt="">Ташкент, Шайхантахурский район</span>
+                        <span class="adress_pr"><img src="images/clock.png" alt="">Вчера 23:25</span>
+                        <a href="#" class="razd_star"><i class="fas fa-star"></i><i class="far fa-star"></i></a>
+                    </div>
+                </div>
+                <div class="item_prod">
+                    <a href="#" class="img"></a>
+                    <div class="text">
+                        <div class="prod_price">
+                            <p>220000000 </p><span>сум/шт</span>
+                        </div>
+                        <a href="#" class="title">Продаю новый трактор BELARUS-1523</a>
+                        <p class="two_text">Трактор предназначен для выполнения различных сельскохозяйственных работ общего назначения, основной и предпосевной обработки почвы, посева в составе широкозахватных и комбинированных агрегатов, уборочных составе высокопроизводительных уборочных комплексов, транспортных работ. Мощность</p>
+                        <p class="company_name">Компания: <b>ЧП "PLANETA SERVIS"</b></p>
+                        <span class="adress_pr"><img src="images/map_mar.png" alt="">Ташкент, Шайхантахурский район</span>
+                        <span class="adress_pr"><img src="images/clock.png" alt="">Вчера 23:25</span>
+                        <a href="#" class="razd_star"><i class="fas fa-star"></i><i class="far fa-star"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="about_benefits">
+        <div class="container">
+            <p>У каждого сельскохозяйственного производителя немало хлопот. Кроме круглогодичной заботы о растениях, животных, встают проблемы с реализацией выращенной продукции. Специфика этих товаров заключается в необходимости срочной реализации, где отлично может помочь торговая площадка а именно доска объявлений.  Не всегда удается оперативно найти покупателя, выгодно продать товар. Наша доска агро объявлений Узбекистана поможет каждому аграрию и сельскому хозяйству максимально быстро продать свою продукцию.</p>
+        </div>
+    </div>
+{% include 'footer.html' %}
+{% include 'js.html' %}
+</body>
+</html>

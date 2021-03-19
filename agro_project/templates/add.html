@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+{% include 'css.html' %}
+    <title>Adds</title> 
+</head>
+ 
+<body>
+ {% include 'header.html' %}
+    <div class="add_plus">
+        <div class="container">
+            <div class="links_top">
+                <a href="{% url 'index' %}">Главная</a>
+                <a href="{% url 'add' %}">Профиль пользователя</a>
+            </div>
+        </div>
+    </div>
+    <div class="tab_section crid">
+            <div class="boder"></div>
+            <ul class="nav nav-tabs container othr">
+              <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#homes">Мои объявления  <span>4</span></a>
+              </li>
+<!--              <li class="nav-item">-->
+<!--                <a class="nav-link" data-toggle="tab" href="#menu1s">Сообщения   <span>25</span></a>-->
+<!--              </li>-->
+<!--              <li class="nav-item">-->
+<!--                <a class="nav-link" data-toggle="tab" href="#menu2s">Платежи и счет</a>-->
+<!--              </li>-->
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#menu3s">Информация о компании</a>
+              </li>
+<!--               <li class="nav-item">-->
+<!--                <a class="nav-link" data-toggle="tab" href="#menu4s">Настройки</a>-->
+<!--              </li>-->
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane container active" id="homes">
+                    <div class="link_us_aktiv">
+                        <a href="#" class="active">Активные <span>(3)</span></a>
+                        <a href="#">На <span>модерации</span></a>
+                        <a href="#">Неактивные <span>(1)</span></a>
+                    </div>
+                    <div class="item_prod quant">
+                    {% for i in yangilik %}
+                        {% if forloop.counter0 < 3 %}
+                        <a href="#"><img src="http://127.0.0.1:8000{{ i.rasmlar }}"></a>
+                        <div class="text">
+                            <div class="prod_price">
+                                <p>275275</p><span>сум/шт</span>
+                            </div>
+                            <a href="#" class="title">{{ i.name }}</a>
+                            <p>Дата публикации: <span>4647545745</span></p>
+<!--                            <p>Дата окончания: <span>26.01.2019</span></p>-->
+                            <div class="btn_a_back">
+                                <a href="#">Просмотры объявления: <span>439</span></a>
+                                <a href="#"> Просмотры телефона: <span>46</span></a>
+                                <a href="#"><span>15</span></a>
+                            </div>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+<!--                        <div class="user_settings">-->
+<!--                            <a href="#"><img src="images/eye.png" alt="">Просмотреть</a>-->
+<!--                            <a href="#"><img src="images/repeat.png" alt="">Редактировать</a>-->
+<!--                            <a href="#"><img src="images/barber.png" alt="">Деактивировать</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="item_prod quant">-->
+<!--                        <a href="#" class="img"></a>-->
+<!--                        <div class="text">-->
+<!--                            <div class="prod_price">-->
+<!--                                <p>220000000 </p><span>сум/шт</span>-->
+<!--                            </div>-->
+<!--                            <a href="#" class="title">Продаю абсолютно новый трактор BELARUS-1523</a>-->
+<!--                            <p>Дата публикации: <span>27.12.2018</span></p>-->
+<!--                            <p>Дата окончания: <span>26.01.2019</span></p>-->
+<!--                            <div class="btn_a_back">-->
+<!--                                <a href="#">Просмотры объявления: <span>439</span></a>-->
+<!--                                <a href="#"> Просмотры телефона: <span>46</span></a>-->
+<!--                                <a href="#">В Избранном: <span>15</span></a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="user_settings">-->
+<!--                            <a href="#"><img src="images/eye.png" alt="">Просмотреть</a>-->
+<!--                            <a href="#"><img src="images/repeat.png" alt="">Редактировать</a>-->
+<!--                            <a href="#"><img src="images/barber.png" alt="">Деактивировать</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="item_prod quant">-->
+<!--                        <a href="#" class="img"></a>-->
+<!--                        <div class="text">-->
+<!--                            <div class="prod_price">-->
+<!--                                <p>220000000 </p><span>сум/шт</span>-->
+<!--                            </div>-->
+<!--                            <a href="#" class="title">Продаю абсолютно новый трактор BELARUS-1523</a>-->
+<!--                            <p>Дата публикации: <span>27.12.2018</span></p>-->
+<!--                            <p>Дата окончания: <span>26.01.2019</span></p>-->
+<!--                            <div class="btn_a_back">-->
+<!--                                <a href="#">Просмотры объявления: <span>439</span></a>-->
+<!--                                <a href="#"> Просмотры телефона: <span>46</span></a>-->
+<!--                                <a href="#">В Избранном: <span>15</span></a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="user_settings">-->
+<!--                            <a href="#"><img src="images/eye.png" alt="">Просмотреть</a>-->
+<!--                            <a href="#"><img src="images/repeat.png" alt="">Редактировать</a>-->
+<!--                            <a href="#"><img src="images/barber.png" alt="">Деактивировать</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="tab-pane container fade" id="menu1s">-->
+<!--                    <div class="mess_to">-->
+<!--                        <div><p>Действия</p></div>-->
+<!--                        <div><p>Пользователь</p></div>-->
+<!--                        <div><p>Объявление</p></div>-->
+<!--                        <div><p>Дата</p></div>-->
+<!--                    </div>-->
+<!--                    <div class="mess_bottom">-->
+<!--                        <div class="keys">-->
+<!--                            <div>-->
+<!--                                <input type="checkbox" id="sew">-->
+<!--                                <label for="sew"></label>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <a href="#" class="str"><i class="fas fa-star"></i><i class="far fa-star"></i></a>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <a href=""><i class="far fa-trash-alt"></i></a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div><h3>OOO Nilpak Solution</h3></div>-->
+<!--                        <div>-->
+<!--                            <h5>Продаю абсолютно новый трактор BELARUS-1523</h5>-->
+<!--                            <p>Проект полностью финансировался за счет собственных средств. Стартовые инвестиции в проект составили 12 млн руб., из них 70% пошло на разработку ERP-системы (от англ. Enterprise Resource Planning, управление ресурсами предприятия), остальное на создание сайта, а также мобильных приложений для iOS и Android.</p>-->
+<!--                        </div>-->
+<!--                        <div class="nigh">-->
+<!--                            <p>Вчера, 22:31</p>   -->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="mess_bottom">-->
+<!--                        <div class="keys">-->
+<!--                            <div>-->
+<!--                                <input type="checkbox" id="sew2">-->
+<!--                                <label for="sew2"></label>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <a href="#" class="str"><i class="fas fa-star"></i><i class="far fa-star"></i></a>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <a href=""><i class="far fa-trash-alt"></i></a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div><h3>OOO Nilpak Solution</h3></div>-->
+<!--                        <div>-->
+<!--                            <h5>Продаю абсолютно новый трактор BELARUS-1523</h5>-->
+<!--                            <p>Проект полностью финансировался за счет собственных средств. Стартовые инвестиции в проект составили 12 млн руб., из них 70% пошло на разработку ERP-системы (от англ. Enterprise Resource Planning, управление ресурсами предприятия), остальное на создание сайта, а также мобильных приложений для iOS и Android.</p>-->
+<!--                        </div>-->
+<!--                        <div class="nigh">-->
+<!--                            <p>Вчера, 22:31</p>   -->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="mess_bottom">-->
+<!--                        <div class="keys">-->
+<!--                            <div>-->
+<!--                                <input type="checkbox" id="sew3">-->
+<!--                                <label for="sew3"></label>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <a href="#" class="str"><i class="fas fa-star"></i><i class="far fa-star"></i></a>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <a href=""><i class="far fa-trash-alt"></i></a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div><h3>OOO Nilpak Solution</h3></div>-->
+<!--                        <div>-->
+<!--                            <h5>Продаю абсолютно новый трактор BELARUS-1523</h5>-->
+<!--                            <p>Проект полностью финансировался за счет собственных средств. Стартовые инвестиции в проект составили 12 млн руб., из них 70% пошло на разработку ERP-системы (от англ. Enterprise Resource Planning, управление ресурсами предприятия), остальное на создание сайта, а также мобильных приложений для iOS и Android.</p>-->
+<!--                        </div>-->
+<!--                        <div class="nigh">-->
+<!--                            <p>Вчера, 22:31</p>   -->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="mess_bottom">-->
+<!--                        <div class="keys">-->
+<!--                            <div>-->
+<!--                                <input type="checkbox" id="sew4">-->
+<!--                                <label for="sew4"></label>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <a href="#" class="str"><i class="fas fa-star"></i><i class="far fa-star"></i></a>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <a href=""><i class="far fa-trash-alt"></i></a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div><h3>OOO Nilpak Solution</h3></div>-->
+<!--                        <div>-->
+<!--                            <h5>Продаю абсолютно новый трактор BELARUS-1523</h5>-->
+<!--                            <p>Проект полностью финансировался за счет собственных средств. Стартовые инвестиции в проект составили 12 млн руб., из них 70% пошло на разработку ERP-системы (от англ. Enterprise Resource Planning, управление ресурсами предприятия), остальное на создание сайта, а также мобильных приложений для iOS и Android.</p>-->
+<!--                        </div>-->
+<!--                        <div class="nigh">-->
+<!--                            <p>Вчера, 22:31</p>   -->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="mess_bottom">-->
+<!--                        <div class="keys">-->
+<!--                            <div>-->
+<!--                                <input type="checkbox" id="sew5">-->
+<!--                                <label for="sew5"></label>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <a href="#" class="str"><i class="fas fa-star"></i><i class="far fa-star"></i></a>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <a href=""><i class="far fa-trash-alt"></i></a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div><h3>OOO Nilpak Solution</h3></div>-->
+<!--                        <div>-->
+<!--                            <h5>Продаю абсолютно новый трактор BELARUS-1523</h5>-->
+<!--                            <p>Проект полностью финансировался за счет собственных средств. Стартовые инвестиции в проект составили 12 млн руб., из них 70% пошло на разработку ERP-системы (от англ. Enterprise Resource Planning, управление ресурсами предприятия), остальное на создание сайта, а также мобильных приложений для iOS и Android.</p>-->
+<!--                        </div>-->
+<!--                        <div class="nigh">-->
+<!--                            <p>Вчера, 22:31</p>   -->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="mess_bottom">-->
+<!--                        <div class="keys">-->
+<!--                            <div>-->
+<!--                                <input type="checkbox" id="sew5">-->
+<!--                                <label for="sew5"></label>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <a href="#" class="str"><i class="fas fa-star"></i><i class="far fa-star"></i></a>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <a href=""><i class="far fa-trash-alt"></i></a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div><h3>OOO Nilpak Solution</h3></div>-->
+<!--                        <div>-->
+<!--                            <h5>Продаю абсолютно новый трактор BELARUS-1523</h5>-->
+<!--                            <p>Проект полностью финансировался за счет собственных средств. Стартовые инвестиции в проект составили 12 млн руб., из них 70% пошло на разработку ERP-системы (от англ. Enterprise Resource Planning, управление ресурсами предприятия), остальное на создание сайта, а также мобильных приложений для iOS и Android.</p>-->
+<!--                        </div>-->
+<!--                        <div class="nigh">-->
+<!--                            <p>Вчера, 22:31</p>   -->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="mess_bottom">-->
+<!--                        <div class="keys">-->
+<!--                            <div>-->
+<!--                                <input type="checkbox" id="sew6">-->
+<!--                                <label for="sew6"></label>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <a href="#" class="str"><i class="fas fa-star"></i><i class="far fa-star"></i></a>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <a href=""><i class="far fa-trash-alt"></i></a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div><h3>OOO Nilpak Solution</h3></div>-->
+<!--                        <div>-->
+<!--                            <h5>Продаю абсолютно новый трактор BELARUS-1523</h5>-->
+<!--                            <p>Проект полностью финансировался за счет собственных средств. Стартовые инвестиции в проект составили 12 млн руб., из них 70% пошло на разработку ERP-системы (от англ. Enterprise Resource Planning, управление ресурсами предприятия), остальное на создание сайта, а также мобильных приложений для iOS и Android.</p>-->
+<!--                        </div>-->
+<!--                        <div class="nigh">-->
+<!--                            <p>Вчера, 22:31</p>   -->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="mess_bottom">-->
+<!--                        <div class="keys">-->
+<!--                            <div>-->
+<!--                                <input type="checkbox" id="sew7">-->
+<!--                                <label for="sew7"></label>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <a href="#" class="str"><i class="fas fa-star"></i><i class="far fa-star"></i></a>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <a href=""><i class="far fa-trash-alt"></i></a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div><h3>OOO Nilpak Solution</h3></div>-->
+<!--                        <div>-->
+<!--                            <h5>Продаю абсолютно новый трактор BELARUS-1523</h5>-->
+<!--                            <p>Проект полностью финансировался за счет собственных средств. Стартовые инвестиции в проект составили 12 млн руб., из них 70% пошло на разработку ERP-системы (от англ. Enterprise Resource Planning, управление ресурсами предприятия), остальное на создание сайта, а также мобильных приложений для iOS и Android.</p>-->
+<!--                        </div>-->
+<!--                        <div class="nigh">-->
+<!--                            <p>Вчера, 22:31</p>   -->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="mess_bottom">-->
+<!--                        <div class="keys">-->
+<!--                            <div>-->
+<!--                                <input type="checkbox" id="sew8">-->
+<!--                                <label for="sew8"></label>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <a href="#" class="str"><i class="fas fa-star"></i><i class="far fa-star"></i></a>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <a href=""><i class="far fa-trash-alt"></i></a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div><h3>OOO Nilpak Solution</h3></div>-->
+<!--                        <div>-->
+<!--                            <h5>Продаю абсолютно новый трактор BELARUS-1523</h5>-->
+<!--                            <p>Проект полностью финансировался за счет собственных средств. Стартовые инвестиции в проект составили 12 млн руб., из них 70% пошло на разработку ERP-системы (от англ. Enterprise Resource Planning, управление ресурсами предприятия), остальное на создание сайта, а также мобильных приложений для iOS и Android.</p>-->
+<!--                        </div>-->
+<!--                        <div class="nigh">-->
+<!--                            <p>Вчера, 22:31</p>   -->
+<!--                        </div>-->
+<!--                    </div>-->
+                </div>
+                <div class="tab-pane container fade" id="menu2s">
+                    <div style="max-width: 100%; overflow-x: auto;">
+                        <table class="table_lay">
+                            <thead>
+                                <tr>
+                                    <td>Дата операции</td>
+                                    <td>Описание</td>
+                                    <td>Тип операции</td>
+                                    <td>Тип транзакции</td>
+                                    <td>Сумма</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2019-01-01 11:57:01</td>
+                                    <td>Продвижение объявления в ТОП на 7 дней</td>
+                                    <td>Списание баланса</td>
+                                    <td>Сайт Agrosale</td>
+                                    <td>16 000 сум</td>
+                                </tr>
+<!--                                <tr>-->
+<!--                                    <td>2019-01-01 11:57:01</td>-->
+<!--                                    <td>Пополнение паланса личного кабинета</td>-->
+<!--                                    <td>Пополнение баланса</td>-->
+<!--                                    <td>PAYNET</td>-->
+<!--                                    <td>180 000 сум</td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <td>2019-01-01 11:57:01</td>-->
+<!--                                    <td>Продвижение объявления в ТОП на 7 дней</td>-->
+<!--                                    <td>Списание баланса</td>-->
+<!--                                    <td>Сайт Agrosale</td>-->
+<!--                                    <td>16 000 сум</td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <td>2019-01-01 11:57:01</td>-->
+<!--                                    <td>Пополнение паланса личного кабинета</td>-->
+<!--                                    <td>Пополнение баланса</td>-->
+<!--                                    <td>PAYNET</td>-->
+<!--                                    <td>180 000 сум</td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <td>2019-01-01 11:57:01</td>-->
+<!--                                    <td>Продвижение объявления в ТОП на 7 дней</td>-->
+<!--                                    <td>Списание баланса</td>-->
+<!--                                    <td>Сайт Agrosale</td>-->
+<!--                                    <td>16 000 сум</td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <td>2019-01-01 11:57:01</td>-->
+<!--                                    <td>Пополнение паланса личного кабинета</td>-->
+<!--                                    <td>Пополнение баланса</td>-->
+<!--                                    <td>PAYNET</td>-->
+<!--                                    <td>180 000 сум</td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <td>2019-01-01 11:57:01</td>-->
+<!--                                    <td>Продвижение объявления в ТОП на 7 дней</td>-->
+<!--                                    <td>Списание баланса</td>-->
+<!--                                    <td>Сайт Agrosale</td>-->
+<!--                                    <td>16 000 сум</td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <td>2019-01-01 11:57:01</td>-->
+<!--                                    <td>Пополнение паланса личного кабинета</td>-->
+<!--                                    <td>Пополнение баланса</td>-->
+<!--                                    <td>PAYNET</td>-->
+<!--                                    <td>180 000 сум</td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <td>2019-01-01 11:57:01</td>-->
+<!--                                    <td>Продвижение объявления в ТОП на 7 дней</td>-->
+<!--                                    <td>Списание баланса</td>-->
+<!--                                    <td>Сайт Agrosale</td>-->
+<!--                                    <td>16 000 сум</td>-->
+<!--                                </tr>-->
+<!--                                <tr>-->
+<!--                                    <td>2019-01-01 11:57:01</td>-->
+<!--                                    <td>Пополнение паланса личного кабинета</td>-->
+<!--                                    <td>Пополнение баланса</td>-->
+<!--                                    <td>PAYNET</td>-->
+<!--                                    <td>180 000 сум</td>-->
+<!--                                </tr>-->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane container fade" id="menu3s">
+                    <div id="accordion" class="accord">
+                        <div class="" id="headingOne">
+                            <div class="" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                             <h3>Информация о компании</h3>
+                            </div>
+                        </div>
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ form.id }}
+                            {{ form.password }}
+                            {{ form.is_agree }}
+
+                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="body_accord">
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="row">
+                                                <span class="remove-image"></span>
+                                            </div>
+
+                                            <div class="col-lg-4 col-sm-4">
+                                                <label for="">Номер телефона *</label>
+                                            </div>
+                                            <div class="col-lg-8 col-sm-8">
+                                                {{ form.number }}
+                                            </div>
+<!--&lt;!&ndash;                                            <div class="col-lg-4 col-sm-4">&ndash;&gt;-->
+<!--&lt;!&ndash;                                                <label for="">Название компании</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                                            </div>&ndash;&gt;-->
+<!--                                            <div class="col-lg-8 col-sm-8">-->
+<!--                                                {{ form.user_type }}-->
+<!--                                            </div>-->
+<!--                                            <div class="col-lg-4 col-sm-4">-->
+<!--                                                <label for="">Ваше имя и фамилия</label>-->
+<!--                                            </div>-->
+                                            <div class="col-lg-8 col-sm-8">
+                                                {{ form.username }}
+                                            </div>
+<!--                                            <div class="col-lg-4 col-sm-4">-->
+<!--                                                <label for="">Веб-сайт компании</label>-->
+<!--                                            </div>-->
+                                            <div class="col-lg-8 col-sm-8">
+                                                {{ form.email }}
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    </div>
+                                </div>
+                                <button style="background:aqua; border-radius: 30px;" type="submit" class="update_ber">Обновить данные</button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+    <div class="about_benefits">
+        <div class="container">
+            <p>У каждого сельскохозяйственного производителя немало хлопот. Кроме круглогодичной заботы о растениях, животных, встают проблемы с реализацией выращенной продукции. Специфика этих товаров заключается в необходимости срочной реализации, где отлично может помочь торговая площадка а именно доска объявлений.  Не всегда удается оперативно найти покупателя, выгодно продать товар. Наша доска агро объявлений Узбекистана поможет каждому аграрию и сельскому хозяйству максимально быстро продать свою продукцию.</p>
+        </div>
+    </div>
+  {% include 'footer.html' %}
+{% include 'js.html' %}
+</body>
+</html>

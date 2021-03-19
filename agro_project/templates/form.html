@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% include 'css.html' %}
+    <title>Form</title> 
+</head>
+ 
+<body>
+    {% include 'header.html' %}
+    <div class="add_plus">
+        <div class="container">
+            <div class="links_top">
+                <a href="{% url 'index' %}">Главная</a>
+                <a href="{% url 'form' %}">Профиль пользователя</a>
+            </div>
+
+        </div>
+    </div>
+<!--    <form method="post" enctype="multipart/form-data">-->
+      <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+        <div class="placing">
+            <div class="container">
+                <h1>Размещмение товара или услуги</h1>
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 top_form">
+                        <div class="form_group d-flex justify-content-between">
+                            <label for="">Выберите категорию <span>*</span></label>
+                            <select name="toifa" id=""  data-toggle="tooltip" data-placement="right" title="Информационное сообщение с подсказкой будет выводится во всплывающем блоке типа tooltip. И поможет пользователю сориентироваться с полями.">
+                                <option value="1">benzin </option>
+                                <option value="2">gaz </option>
+                            </select>
+                        </div>
+                        <div class="form_group d-flex justify-content-between">
+                            <label for="">Город или Регион <span>*</span></label>
+                            <select name="viloyat_id" id=""  data-toggle="tooltip" data-placement="right" title="Информационное сообщение с подсказкой будет выводится во всплывающем блоке типа tooltip. И поможет пользователю сориентироваться с полями.">
+                                {% for i in viloyatlar %}
+                                <option value="{{ i.id }}">{{ i.name }} </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form_group d-flex justify-content-between">
+                            <label for="">Тип объявления <span>*</span></label>
+                            <select name="reklama_turi" id="">
+                                <option value="1">pullik</option>
+                                <option value="2">tekin </option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form_group">
+                            <label for="">Заголовок объявления <span>*</span></label>
+                            <input type="text" name="name">
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-4 col-lg-6">
+                                <div class="form_group">
+                                    <label for="">Состояние</label>
+                                    <select name="holat" id="">
+                                        <option value="1">Yangi </option>
+                                        <option value="2">Eski</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-6">
+                                <div class="form_group">
+                                    <label for="">Частное лицо/Бизнес</label>
+<!--                                    <select name="biznes" id="">-->
+                                        <input type="text" name="biznes">
+<!--                                        <option value="TRUE">Выбрать </option>-->
+<!--                                        <option value="FALSE">Выбрать 2</option>-->
+<!--                                    </select>-->
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-6">
+                                <div class="form_group">
+                                    <label for="">Наличие</label>
+
+                                      <input type="text" name="chiqarilgan_yili">
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-6">
+                                <div class="form_group">
+                                    <label for="">Стоимость</label>
+                                    <input type="text" name="summa_narxi">
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-6">
+                                <div class="form_group">
+                                    <label class="hide_text">hide_text</label>
+                                    <select name="pul_turi" id="">
+                                        <option value="1">Долларов США</option>
+                                        <option value="2">sum </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form_group dogovor">
+                                    <input type="checkbox" name="kelishilgan" id="dfgt">
+                                    <label for="dfgt">Договорная</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form_group">
+                            <label for="">Описание <span>*</span></label>
+                            <textarea name="malumoti_qisqacha" id="" cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="upd_new">
+                    <h5>Фотографии объявления</h5>
+                    <p>Объявления с фото получают в среднем в 3-5 раз больше откликов. Первое изображение будет являть основным фото вашего объявления</p>
+                    <div class="row form-group upload-photo">
+                        <div class="col-6 col-xl-2 col-lg-2">
+                            <label class="uploadPreview" for="file1">
+                                <input type="file" id="file1" accept="image/*" name="rasmlar">
+                                <span class="img-uploader">
+                                    <div class="pl">+</div>
+                                </span>
+                            </label>
+                            <span class="remove-image">+</span>
+                        </div>
+                        <div class="col-6 col-xl-2 col-lg-2">
+                            <label class="uploadPreview" for="file2">
+                                <input type="file" id="file2" accept="image/*" name="rasmlar">
+                                <span class="img-uploader">
+                                    <div class="pl">+</div>
+                                </span>
+                            </label>
+                            <span class="remove-image">+</span>
+                        </div>
+                        <div class="col-6 col-xl-2 col-lg-2">
+                            <label class="uploadPreview" for="file3">
+                                <input type="file" id="file3" accept="image/*" name="rasmlar">
+                                <span class="img-uploader">
+                                    <div class="pl">+</div>
+                                </span>
+                            </label>
+                            <span class="remove-image">+</span>
+                        </div>
+                        <div class="col-6 col-xl-2 col-lg-2">
+                            <label class="uploadPreview" for="file4">
+                                <input type="file" id="file4" accept="image/*" name="rasmlar">
+                                <span class="img-uploader">
+                                    <div class="pl">+</div>
+                                </span>
+                            </label>
+                            <span class="remove-image">+</span>
+                        </div>
+                        <div class="col-6 col-xl-2 col-lg-2">
+                            <label class="uploadPreview" for="file5">
+                                <input type="file" id="file5" accept="image/*" name="rasmlar">
+                                <span class="img-uploader">
+                                    <div class="pl">+</div>
+                                </span>
+                            </label>
+                            <span class="remove-image">+</span>
+                        </div>
+                        <div class="col-6 col-xl-2 col-lg-2">
+                            <label class="uploadPreview" for="file6">
+                                <input type="file" id="file6" accept="image/*" name="rasmlar">
+                                <span class="img-uploader">
+                                    <div class="pl">+</div>
+                                </span>
+                            </label>
+                            <span class="remove-image">+</span>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="axel">
+                    <a href="#">Предпросмотр</a>
+                    <button type="submit">Разместить объявление</button>
+                </div>
+            </div>
+        </div>
+    <div class="about_benefits">
+        <div class="container">
+            <p>У каждого сельскохозяйственного производителя немало хлопот. Кроме круглогодичной заботы о растениях, животных, встают проблемы с реализацией выращенной продукции. Специфика этих товаров заключается в необходимости срочной реализации, где отлично может помочь торговая площадка а именно доска объявлений.  Не всегда удается оперативно найти покупателя, выгодно продать товар. Наша доска агро объявлений Узбекистана поможет каждому аграрию и сельскому хозяйству максимально быстро продать свою продукцию.</p>
+        </div>
+    </div>
+    {% include 'footer.html' %}
+
+
+{% include 'js.html' %}
+    <script>
+
+
+    </script>
+</body>
+</html>

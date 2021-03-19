@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+{% include 'css.html' %}
+    <title>Razdel</title> 
+</head>
+ 
+<body>
+  {% include 'header.html' %}
+    <div class="future lin">
+        <div class="container">
+            <div class="links_top">
+                <a href="{% url 'index' %}">Главная</a>
+                <a href="{% url 'salers' %}">Продавцы</a>
+            </div>  
+			<div>
+				<div class="item_prod">
+					<div class="text">
+						<a href="#" class="title">Компания: ЧП "PLANETA SERVIS"</a>
+						<p class="two_text">Email: <b>testmail@gmail.com</b></p>
+						<p class="two_text">Telefon raqami: <b>+998999876543</b></p>
+					</div>
+				</div>
+				<div class="item_prod">
+					<div class="text">
+						<a href="#" class="title">Foydalanuvchi: Olimov Alisher</a>
+						<p class="two_text">Email: <b>testmail@gmail.com</b></p>
+						<p class="two_text">Telefon raqami: <b>+998999876543</b></p>
+					</div>
+				</div>
+			</div>
+        </div>
+    </div>
+{% include 'footer.html' %}
+{% include 'js.html' %}
+
+    <script>
+          $('.two_text').ellipsis({
+              lines:4,             
+              ellipClass: 'ellip',  
+              responsive: true    
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% include 'css.html' %}
+    <title>Agro</title> 
+</head>
+  
+<body>
+
+    <div class="future other reg">
+        <div class="container">
+            <div class="registr_bl">
+
+                <ul>
+                    <li class="active"><a href="#">Авторизация</a></li>
+                    <li><a href="#">Регистрация</a></li>
+                </ul>
+                <div class="main_tab">
+                    <div id="avt" class="tab_item active">
+                        <div class="overlay"></div>
+                       <form method="post">
+                           {% csrf_token %}
+                           <div class="form_group">
+                               <label for="#">Электронная почта</label>
+
+                               <input type="text" name= "auser" placeholder="username">
+                           </div>
+                           <div class="form_group">
+                               <label for="#">Пароль</label>
+                               <input type="password" name="pass" placeholder="************">
+                           </div>
+                           {% for message in messages %}
+                                <p id="h3" style="background:aqua; border-radius: 30px;">{{ message }}</p>
+                           {% endfor %}
+                           <button type="submit">Войти</button>
+
+                           <a href="#" class="remem_pass">Забыли пароль?</a>  
+                       </form>
+                    </div>
+                    <div id="reg" class="tab_item ">
+                        <form method="post">
+                            {% csrf_token %}
+                        <div class="overlay"></div>
+                        <form action="#">
+                            <div class="form_group">
+<!--                               <label for="#">Ваше имя / Название компании</label>-->
+<!--                                <input type="text" name="user_type" placeholder="Ташматов Шариф">-->
+<!--                               <select name="" id="">-->
+<!--                                   <option value="">Выбрать из списка</option>-->
+<!--                                   <option value="">Выбрать из списка2</option>-->
+<!--                                   <option value="">Выбрать из списка3</option>-->
+<!--                               </select>-->
+                            </div>
+                            <div class="form_group">
+                               <label for="#">Ваше имя / Название компании</label>
+                               <input type="text" name="username" placeholder="Username">
+                            </div>
+                            <div class="form_group">
+                               <label for="#">Электронный адрес</label>
+                               <input type="email" name="email" placeholder="eleery@gmail.com">
+                            </div>
+                            <div class="form_group">
+                               <label for="#">Пароль</label>
+                               <input type="password" name="password" placeholder="************">
+                            </div>
+                            <div class="form_group">
+                               <label for="#">Номер телефона</label>
+                               <input type="tel" name="number" class="tel" placeholder="+998 (__) ___-__-__">
+                            </div>
+                            <div class="check">
+                                <input type="checkbox" id="aser" name="yes" style="display: none;">
+                                <label for="aser" class="check_form">
+                                    Согласен с условиями <a href="#" target="_blank">публичной оферты</a>
+                                </label>
+                            </div>
+                           <button type="submit">Войти</button> 
+                        </form></form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+{% include 'js.html' %}
+    <script>
+        new Cleave('.tel', {
+            phone: true,
+            delimetrs: [" (", ") ", "-", "-"],
+            phoneRegionCode: 'UZ',
+            prefix: "+998"
+          });
+    </script>
+</body>
+</html>
